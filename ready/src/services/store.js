@@ -54,7 +54,7 @@ function createStore({ history }) {
 
   // run sagas
   sagaMiddleware.run(function* () {
-    yield all([...sagas.map(s => s())]);
+    // yield all([...sagas.map(s => s())]);
   });
 
   return store;
@@ -69,5 +69,7 @@ if (module.hot) {
     data.store = store;
   });
 }
+
+console.log('-----------------', store.getState());
 
 export default store;

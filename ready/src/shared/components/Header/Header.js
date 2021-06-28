@@ -7,6 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 const useStyles = makeStyles(theme => ({
   offset: theme.mixins.toolbar, // добавим отступ для хедера
@@ -24,6 +25,8 @@ const useStyles = makeStyles(theme => ({
 export function Header() {
   const classes = useStyles();
 
+  const isMobile = useIsMobile();
+
   return (
     <Fragment>
       <div className={classes.offset} />
@@ -36,6 +39,9 @@ export function Header() {
           <Button color="inherit" component={NavLink} to="/">Home</Button>
           <Button color="inherit" component={NavLink} to="/posts">Posts</Button>
           <Button color="inherit" component={NavLink} to="/new-post">Add Post</Button>
+          {isMobile && (
+            <Button color="inherit" component={NavLink} to="/logout">Logout</Button>
+          )}
         </Toolbar>
       </AppBar>
     </Fragment>

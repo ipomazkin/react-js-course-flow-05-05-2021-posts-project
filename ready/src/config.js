@@ -12,4 +12,7 @@ export const appConf = {
   api: {
     baseURL: "https://60bb880442e1d00017620c95.mockapi.io",
   },
+  responsive: {
+    mobileBreakpoint: 768,
+  },
 };
